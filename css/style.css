@@ -1,4 +1,4 @@
-/* È«¾ÖÑùÊ½ÖØÖÃ */
+/* å…¨å±€æ ·å¼é‡ç½® */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* È«¾Ö±äÁ¿ */
+/* å…¨å±€å˜é‡ */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
@@ -17,7 +17,7 @@
     --shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Ò³Ãæ»ù´¡ÑùÊ½ */
+/* é¡µé¢åŸºç¡€æ ·å¼ */
 body {
     color: var(--text-color);
     line-height: 1.6;
@@ -30,7 +30,7 @@ body {
     padding: 0 20px;
 }
 
-/* µ¼º½À¸ÑùÊ½ */
+/* å¯¼èˆªæ æ ·å¼ */
 header {
     background-color: var(--primary-color);
     padding: 1rem 0;
@@ -41,9 +41,37 @@ header {
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: column; /* æ ‡é¢˜åœ¨ä¸Šï¼Œèœå•åœ¨ä¸‹ */
+  align-items: center;
+  background-color: #2c3e50; /* ä½ å½“å‰çš„æ·±è“è‰²èƒŒæ™¯ */
+  padding: 1rem;
+}
+
+/* å¯¼èˆªèœå•ï¼šå¼ºåˆ¶æ¨ªå‘æ’åˆ—ï¼Œæ‰‹æœºç«¯ä¹Ÿä¸æ¢è¡Œ */
+.nav-menu {
+  display: flex;          /* æ ¸å¿ƒï¼šæ¨ªå‘å¸ƒå±€ */
+  gap: 2rem;              /* èœå•é¡¹ä¹‹é—´çš„é—´è· */
+  list-style: none;       /* å»æ‰é»˜è®¤åˆ—è¡¨ç‚¹ */
+  margin: 1rem 0 0 0;     /* å’Œæ ‡é¢˜ä¿æŒé—´è· */
+  padding: 0;
+}
+
+/* èœå•é¡¹æ–‡å­—æ ·å¼ */
+.nav-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+/* æ‰‹æœºç«¯é€‚é…ï¼šå¦‚æœèœå•å¤ªæŒ¤ï¼Œç¼©å°é—´è·å’Œå­—å· */
+@media (max-width: 768px) {
+  .nav-menu {
+    gap: 1rem;            /* æ‰‹æœºç«¯ç¼©å°é—´è· */
+  }
+  .nav-menu li a {
+    font-size: 0.95rem;   /* æ‰‹æœºç«¯ç¼©å°å­—å· */
+  }
 }
 
 .logo {
@@ -73,7 +101,7 @@ header {
     color: var(--secondary-color);
 }
 
-/* Ö÷ÄÚÈİÇøÑùÊ½ */
+/* ä¸»å†…å®¹åŒºæ ·å¼ */
 main {
     padding: 4rem 0;
     min-height: calc(100vh - 180px);
@@ -88,7 +116,7 @@ main {
     display: inline-block;
 }
 
-/* Ê×Ò³ÑùÊ½ */
+/* é¦–é¡µæ ·å¼ */
 .hero {
     display: flex;
     align-items: center;
@@ -157,10 +185,10 @@ main {
     transform: translateY(-5px);
 }
 
-/* ÓÅ»¯×÷Æ·¿¨Æ¬Í¼Æ¬ */
+/* ä¼˜åŒ–ä½œå“å¡ç‰‡å›¾ç‰‡ */
 .work-card img {
     width: 100%;
-    height: 220px; /* Ìá¸ß¸ß¶È£¬Õ¹Ê¾¸üÍêÕû */
+    height: 220px; /* æé«˜é«˜åº¦ï¼Œå±•ç¤ºæ›´å®Œæ•´ */
     object-fit: cover;
     transition: transform 0.3s ease;
 }
@@ -198,19 +226,19 @@ main {
     background-color: #1a252f;
 }
 
-/* ×÷Æ·ÁĞ±íÒ³ÑùÊ½ */
+/* ä½œå“åˆ—è¡¨é¡µæ ·å¼ */
 .works-grid {
-    display: flex;/* ¿ªÆôFlexµ¯ĞÔ²¼¾Ö£¬ÈÃ×ÓÔªËØ£¨work-card£©ºáÏòÅÅÁĞ */
-    flex-wrap: wrap;/* ºËĞÄ£º×ÓÔªËØ³¬³öÈİÆ÷¿í¶ÈÊ±×Ô¶¯»»ĞĞ£¬·ñÔòËùÓĞ¿¨Æ¬»á¼·ÔÚÒ»ĞĞ */
+    display: flex;/* å¼€å¯Flexå¼¹æ€§å¸ƒå±€ï¼Œè®©å­å…ƒç´ ï¼ˆwork-cardï¼‰æ¨ªå‘æ’åˆ— */
+    flex-wrap: wrap;/* æ ¸å¿ƒï¼šå­å…ƒç´ è¶…å‡ºå®¹å™¨å®½åº¦æ—¶è‡ªåŠ¨æ¢è¡Œï¼Œå¦åˆ™æ‰€æœ‰å¡ç‰‡ä¼šæŒ¤åœ¨ä¸€è¡Œ */
     gap: 2rem;
 }
 
 .works-grid .work-card {
-    width: calc(33.333% - 1.333rem);/* ºËĞÄ£º¼ÆËãÃ¿¸ö¿¨Æ¬µÄ¿í¶È£¬±£Ö¤Ã¿ĞĞ3¸ö */
+    width: calc(33.333% - 1.333rem);/* æ ¸å¿ƒï¼šè®¡ç®—æ¯ä¸ªå¡ç‰‡çš„å®½åº¦ï¼Œä¿è¯æ¯è¡Œ3ä¸ª */
     margin: 0;
 }
 
-/* ×÷Æ·ÏêÇéÒ³ÑùÊ½ */
+/* ä½œå“è¯¦æƒ…é¡µæ ·å¼ */
 .work-detail {
     display: flex;
     gap: 3rem;
@@ -255,8 +283,8 @@ main {
     line-height: 1.8;
 }
 
-/* ========== ºËĞÄÓÅ»¯£ºÊú°æÍ¼Æ¬ÊÊÅäÑùÊ½ ========== */
-/* ×÷Æ·Í¼Æ¬»­ÀÈÑùÊ½£¨ĞŞ¸´Êú°æÍ¼ÏÔÊ¾²»È«£© */
+/* ========== æ ¸å¿ƒä¼˜åŒ–ï¼šç«–ç‰ˆå›¾ç‰‡é€‚é…æ ·å¼ ========== */
+/* ä½œå“å›¾ç‰‡ç”»å»Šæ ·å¼ï¼ˆä¿®å¤ç«–ç‰ˆå›¾æ˜¾ç¤ºä¸å…¨ï¼‰ */
 .work-gallery {
     margin: 2rem 0;
 }
@@ -287,7 +315,7 @@ main {
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* ºËĞÄ£ºÍêÕûÏÔÊ¾Êú°æÍ¼£¬²»²Ã¼ô */
+    object-fit: contain; /* æ ¸å¿ƒï¼šå®Œæ•´æ˜¾ç¤ºç«–ç‰ˆå›¾ï¼Œä¸è£å‰ª */
     object-position: center;
     transition: transform 0.3s ease;
 }
@@ -313,21 +341,21 @@ main {
     opacity: 1;
 }
 
-/* ÏêÇéÒ³Ö÷Í¼ÑùÊ½ÓÅ»¯£¨ĞŞ¸´Êú°æÍ¼ÏÔÊ¾²»È«£© */
+/* è¯¦æƒ…é¡µä¸»å›¾æ ·å¼ä¼˜åŒ–ï¼ˆä¿®å¤ç«–ç‰ˆå›¾æ˜¾ç¤ºä¸å…¨ï¼‰ */
 .main-work-img {
     width: 100%;
-    max-height: 70vh; /* ÏŞÖÆ×î´ó¸ß¶È£¬±ÜÃâÕ¼ÂúÆÁÄ» */
-    object-fit: contain; /* ºËĞÄ£ºÍêÕûÏÔÊ¾Êú°æÍ¼ */
+    max-height: 70vh; /* é™åˆ¶æœ€å¤§é«˜åº¦ï¼Œé¿å…å æ»¡å±å¹• */
+    object-fit: contain; /* æ ¸å¿ƒï¼šå®Œæ•´æ˜¾ç¤ºç«–ç‰ˆå›¾ */
     object-position: center;
     border-radius: 8px;
     box-shadow: var(--shadow);
     margin-bottom: 2rem;
     cursor: pointer;
     background-color: #f5f5f5;
-    overflow-y: auto; /* ³¬³¤Í¼×İÏò¹ö¶¯ */
+    overflow-y: auto; /* è¶…é•¿å›¾çºµå‘æ»šåŠ¨ */
 }
 
-/* Í¼Æ¬Ô¤ÀÀÕÚÕÖ£¨ÓÅ»¯Êú°æÍ¼Ô¤ÀÀ£© */
+/* å›¾ç‰‡é¢„è§ˆé®ç½©ï¼ˆä¼˜åŒ–ç«–ç‰ˆå›¾é¢„è§ˆï¼‰ */
 .img-preview-overlay {
     position: fixed;
     top: 0;
@@ -349,8 +377,8 @@ main {
 
 .img-preview-content img {
     max-width: 100%;
-    max-height: 90vh; /* Ô¤ÀÀÍ¼²»³¬³öÆÁÄ»¸ß¶È */
-    object-fit: contain; /* ºËĞÄ£ºÔ¤ÀÀÊ±ÍêÕûÏÔÊ¾Êú°æÍ¼ */
+    max-height: 90vh; /* é¢„è§ˆå›¾ä¸è¶…å‡ºå±å¹•é«˜åº¦ */
+    object-fit: contain; /* æ ¸å¿ƒï¼šé¢„è§ˆæ—¶å®Œæ•´æ˜¾ç¤ºç«–ç‰ˆå›¾ */
     border-radius: 8px;
 }
 
@@ -364,7 +392,7 @@ main {
     z-index: 1000;
 }
 
-/* ÁªÏµÒ³ÑùÊ½ */
+/* è”ç³»é¡µæ ·å¼ */
 .contact-container {
     display: flex;
     gap: 3rem;
@@ -445,7 +473,7 @@ main {
     background-color: var(--hover-color);
 }
 
-/* Ò³½ÅÑùÊ½ */
+/* é¡µè„šæ ·å¼ */
 footer {
     background-color: var(--primary-color);
     color: var(--white-color);
@@ -476,7 +504,7 @@ footer {
     color: var(--secondary-color);
 }
 
-/* ÏìÓ¦Ê½ÑùÊ½ */
+/* å“åº”å¼æ ·å¼ */
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
@@ -501,7 +529,7 @@ footer {
         flex-direction: column;
     }
 
-    /* ÒÆ¶¯¶ËÍ¼Æ¬ÊÊÅä */
+    /* ç§»åŠ¨ç«¯å›¾ç‰‡é€‚é… */
     .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
@@ -511,7 +539,7 @@ footer {
     }
 
     .main-work-img {
-        max-height: 50vh; /* ÒÆ¶¯¶Ë½µµÍÖ÷Í¼¸ß¶È */
+        max-height: 50vh; /* ç§»åŠ¨ç«¯é™ä½ä¸»å›¾é«˜åº¦ */
     }
 
     .close-preview {
@@ -548,7 +576,7 @@ footer {
         max-width: 100%;
     }
 
-    /* Ğ¡ÆÁÍ¼Æ¬ÊÊÅä */
+    /* å°å±å›¾ç‰‡é€‚é… */
     .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
     }
