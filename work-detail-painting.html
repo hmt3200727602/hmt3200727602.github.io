@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人作品集 - 绘画作品详情</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/common.js"></script>
+    <style>
+        /* 核心作品区域（保持不变） */
+        .painting-group {
+            margin: 2rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .painting-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .painting-item .img-container {
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .painting-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: #f5f5f5;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .painting-item img:hover {
+            transform: scale(1.02);
+        }
+        .painting-desc {
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .painting-desc h4 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .painting-desc p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        /* --- 关键修改：图库自适应放大，与上方对齐 --- */
+        .gallery-grid {
+            display: grid;
+            /* 3列自适应，和上方painting-group的列宽完全一致 */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 2rem; /* 和上方gap保持一致 */
+            margin: 0;
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .gallery-item .img-wrapper {
+            width: 100%;
+            aspect-ratio: 1/1; /* 强制1:1 */
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: #f5f5f5;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item .caption {
+            padding: 0.5rem;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 预览层（保持不变） */
+        .img-preview-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .img-preview-content {
+            position: relative;
+        }
+        .img-preview-content img {
+            width: auto !important;
+            height: auto !important;
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain !important;
+        }
+        .close-preview {
+            position: absolute;
+            top: -2rem;
+            right: -2rem;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 导航栏 -->
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <a href="index.html" class="logo">我的作品集</a>
+            <ul class="nav-links">
+                <li><button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button></li>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="works.html">作品列表</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- 主内容区 -->
+<main class="container">
+    <h1 class="section-title">作品详情</h1>
+
+    <!-- 作品基本信息 -->
+    <div class="work-detail" style="margin-bottom: 2rem;">
+        <div class="work-detail-content">
+            <h2>绘画作品作品集</h2>
+            <span class="category">数字绘画 / 插画创作 / 人物设计</span>
+            <p>以人物插画为核心创作方向，涵盖线稿、半厚涂、平涂等多种风格，注重角色情感表达与画面氛围感营造。</p>
+            <a href="works.html" class="cta-btn">返回作品列表</a>
+        </div>
+    </div>
+
+    <!-- 核心三张绘画作品 -->
+    <div class="painting-group">
+        <div class="painting-item">
+            <div class="img-container">
+                <img src="/MyPortfolio/images/huihua/狐狸女孩.png" alt="狐狸女孩插画" onclick="openPreview(this.src)">
+            </div>
+            <div class="painting-desc">
+                <h4>狐狸女孩</h4>
+                <p>半厚涂风格，暖橙色调搭配樱花背景，狐耳元素强化角色辨识度，突出温柔治愈的气质。</p>
+            </div>
+        </div>
+        <div class="painting-item">
+            <div class="img-container">
+                <img src="/MyPortfolio/images/huihua/拿书女孩.jpeg" alt="拿书女孩插画" onclick="openPreview(this.src)">
+            </div>
+            <div class="painting-desc">
+                <h4>拿书女孩</h4>
+                <p>清新平涂风格，淡紫与浅蓝配色，飘逸裙摆设计，塑造文静优雅的书香少女形象。</p>
+            </div>
+        </div>
+        <div class="painting-item">
+            <div class="img-container">
+                <img src="/MyPortfolio/images/huihua/生日女孩.jpg" alt="生日女孩插画" onclick="openPreview(this.src)">
+            </div>
+            <div class="painting-desc">
+                <h4>生日女孩</h4>
+                <p>多彩撞色风格，暖橙与薄荷绿搭配，装饰元素丰富，传递活泼欢快的生日氛围。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 更多绘画作品（2×3，放大后与上方对齐） -->
+    <div class="work-gallery" style="margin-top: 3rem;">
+        <h3 class="gallery-title">更多绘画作品</h3>
+        <div class="gallery-grid">
+            <!-- 第一行 -->
+            <div class="gallery-item">
+                <div class="img-wrapper">
+                    <img src="/MyPortfolio/images/huihua/海边女孩.png" alt="海边女孩" onclick="openPreview(this.src)">
+                </div>
+                <div class="caption">海边女孩</div>
+            </div>
+            <div class="gallery-item">
+                <div class="img-wrapper">
+                    <img src="/MyPortfolio/images/huihua/芭蕾女孩.jpg" alt="芭蕾女孩" onclick="openPreview(this.src)">
+                </div>
+                <div class="caption">芭蕾女孩</div>
+            </div>
+            <div class="gallery-item">
+                <div class="img-wrapper">
+                    <img src="/MyPortfolio/images/huihua/双马尾女孩.png" alt="双马尾女孩" onclick="openPreview(this.src)">
+                </div>
+                <div class="caption">双马尾女孩</div>
+            </div>
+            <!-- 第二行 -->
+            <div class="gallery-item">
+                <div class="img-wrapper">
+                    <img src="/MyPortfolio/images/huihua/唱歌男孩.png" alt="唱歌男孩" onclick="openPreview(this.src)">
+                </div>
+                <div class="caption">唱歌男孩</div>
+            </div>
+            <div class="gallery-item">
+                <div class="img-wrapper">
+                    <img src="/MyPortfolio/images/huihua/Q版昊.png" alt="Q版昊" onclick="openPreview(this.src)">
+                </div>
+                <div class="caption">Q版昊</div>
+            </div>
+            <div class="gallery-item">
+                <div class="img-wrapper">
+                    <img src="/MyPortfolio/images/huihua/卡牌男孩.png" alt="卡牌男孩" onclick="openPreview(this.src)">
+                </div>
+                <div class="caption">卡牌男孩</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- 图片预览遮罩层 -->
+<div class="img-preview-overlay" id="previewOverlay">
+    <div class="img-preview-content">
+        <span class="close-preview" onclick="closePreview()">&times;</span>
+        <img id="previewImg" src="" alt="原图预览">
+    </div>
+</div>
+
+<!-- 页脚 -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-github"></i></a></li>
+                <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+            <p>&copy; 2026 我的个人作品集 | 版权所有</p>
+        </div>
+    </div>
+</footer>
+
+<!-- 交互脚本 -->
+<script>
+    function openPreview(imgSrc) {
+        const overlay = document.getElementById('previewOverlay');
+        const previewImg = document.getElementById('previewImg');
+        previewImg.src = imgSrc;
+        previewImg.onload = function() {
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    function closePreview() {
+        const overlay = document.getElementById('previewOverlay');
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closePreview();
+    });
+    document.getElementById('previewOverlay').addEventListener('click', function(e) {
+        if (e.target === this) closePreview();
+    });
+    function goBack() {
+        window.history.back();
+        if (window.history.length === 1) window.location.href = 'index.html';
+    }
+</script>
+</body>
+</html>

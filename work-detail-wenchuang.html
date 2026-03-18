@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人作品集 - 文创设计详情</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/common.js"></script>
+    <style>
+        /* 文创作品页专属样式 */
+        .wenchuang-group {
+            margin: 2rem 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .wenchuang-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        /* 核心修改：让明信片和台历图片高度完全一致 */
+        .wenchuang-item img {
+            width: 100%;
+            height: 380px; /* 统一高度，两者等高 */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            object-fit: cover;
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+        .wenchuang-desc {
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .wenchuang-desc h4 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .wenchuang-desc p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+        .gallery-item img {
+            object-fit: cover;
+            height: 100%;
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .wenchuang-group {
+                grid-template-columns: 1fr;
+            }
+            .wenchuang-item img {
+                height: auto;
+                max-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 导航栏 -->
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <a href="index.html" class="logo">我的作品集</a>
+            <ul class="nav-links">
+                <li><button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button></li>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="works.html">作品列表</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- 主内容区 -->
+<main class="container">
+    <h1 class="section-title">作品详情</h1>
+
+    <!-- 第一步：文字模块置顶 -->
+    <div class="work-detail" style="margin-bottom: 2rem;">
+        <div class="work-detail-content">
+            <h2>校园文创设计作品集</h2>
+            <span class="category">文创设计 / 平面视觉 / 纪念周边</span>
+            <p>围绕校园风光、季节变迁与人文记忆，设计系列明信片与台历文创，将校园日常转化为可触摸的纪念载体，传递青春与归属感。</p>
+            <p><strong>设计理念：</strong>以“四季校园”为核心线索，用镜头捕捉不同季节的校园景致，通过平面设计提炼视觉符号，让每一件文创都成为承载记忆的时光容器。明信片侧重单场景情绪表达，台历则串联起完整的四季流转，满足不同场景的纪念需求。</p>
+            <p><strong>设计工具：</strong>Photoshop（后期调色）、Illustrator（文字排版）、Canva（版式设计）</p>
+            <a href="works.html" class="cta-btn">返回作品列表</a>
+        </div>
+    </div>
+
+    <!-- 第二步：明信片 + 台历 并排展示（等高） -->
+    <div class="wenchuang-group">
+        <!-- 1. 明信片7（竖版） -->
+        <div class="wenchuang-item">
+            <img src="/MyPortfolio/images/wenchuang/明信片7.png" alt="秋日银杏明信片" onclick="openPreview(this.src)">
+            <div class="wenchuang-desc">
+                <h4>秋日银杏明信片</h4>
+                <p>以校园金黄银杏为主题，暖色调传递秋日氛围感，搭配校徽与文艺文案，适合作为校园纪念文创。</p>
+            </div>
+        </div>
+
+        <!-- 2. 台历1（横版） -->
+        <div class="wenchuang-item">
+            <img src="/MyPortfolio/images/wenchuang/台历1.png" alt="校园风光台历" onclick="openPreview(this.src)">
+            <div class="wenchuang-desc">
+                <h4>校园风光台历</h4>
+                <p>精选校园标志性建筑作为封面，内页按月搭配不同季节风景，兼具实用性与纪念意义，展现校园四季之美。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 更多文创作品图库（保持不变） -->
+    <div class="work-gallery">
+        <h3 class="gallery-title">更多文创作品</h3>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openPreview('/MyPortfolio/images/wenchuang/明信片1.jpg')">
+                <img src="/MyPortfolio/images/wenchuang/明信片1.jpg" alt="林荫道明信片">
+                <div class="caption">林荫道明信片</div>
+            </div>
+            <div class="gallery-item" onclick="openPreview('/MyPortfolio/images/wenchuang/明信片2.jpg')">
+                <img src="/MyPortfolio/images/wenchuang/明信片2.jpg" alt="爱心落叶明信片">
+                <div class="caption">爱心落叶明信片</div>
+            </div>
+            <div class="gallery-item" onclick="openPreview('/MyPortfolio/images/wenchuang/明信片3.jpg')">
+                <img src="/MyPortfolio/images/wenchuang/明信片3.jpg" alt="校园灯箱明信片">
+                <div class="caption">校园灯箱明信片</div>
+            </div>
+            <div class="gallery-item" onclick="openPreview('/MyPortfolio/images/wenchuang/明信片4.jpg')">
+                <img src="/MyPortfolio/images/wenchuang/明信片4.jpg" alt="蒲公英明信片">
+                <div class="caption">蒲公英明信片</div>
+            </div>
+            <div class="gallery-item" onclick="openPreview('/MyPortfolio/images/wenchuang/明信片5.png')">
+                <img src="/MyPortfolio/images/wenchuang/明信片5.png" alt="红枫明信片">
+                <div class="caption">红枫明信片</div>
+            </div>
+            <div class="gallery-item" onclick="openPreview('/MyPortfolio/images/wenchuang/明信片6.png')">
+                <img src="/MyPortfolio/images/wenchuang/明信片6.png" alt="冬日夜景明信片">
+                <div class="caption">冬日夜景明信片</div>
+            </div>
+            <div class="gallery-item" onclick="openPreview('/MyPortfolio/images/wenchuang/明信片8.png')">
+                <img src="/MyPortfolio/images/wenchuang/明信片8.png" alt="水杉林明信片">
+                <div class="caption">水杉林明信片</div>
+            </div>
+            <div class="gallery-item" onclick="openPreview('/MyPortfolio/images/wenchuang/台历2.png')">
+                <img src="/MyPortfolio/images/wenchuang/台历2.png" alt="紫藤花台历">
+                <div class="caption">紫藤花台历</div>
+            </div>
+            <div class="gallery-item" onclick="openPreview('/MyPortfolio/images/wenchuang/台历3.png')">
+                <img src="/MyPortfolio/images/wenchuang/台历3.png" alt="图书馆台历">
+                <div class="caption">图书馆台历</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- 图片预览遮罩层 -->
+<div class="img-preview-overlay" id="previewOverlay" onclick="closePreview()">
+    <span class="close-preview" onclick="closePreview()">&times;</span>
+    <div class="img-preview-content">
+        <img id="previewImg" src="" alt="图片预览">
+    </div>
+</div>
+
+<!-- 页脚 -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-github"></i></a></li>
+                <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+            <p>&copy; 2026 我的个人作品集 | 版权所有</p>
+        </div>
+    </div>
+</footer>
+
+<!-- 交互脚本 -->
+<script>
+    function openPreview(imgSrc) {
+        const overlay = document.getElementById('previewOverlay');
+        const previewImg = document.getElementById('previewImg');
+        previewImg.src = imgSrc;
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+    function closePreview() {
+        const overlay = document.getElementById('previewOverlay');
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closePreview();
+    });
+    function goBack() {
+        window.history.back();
+        if (window.history.length === 1) window.location.href = 'index.html';
+    }
+</script>
+</body>
+</html>

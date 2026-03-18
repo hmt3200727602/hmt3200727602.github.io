@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人作品集 - 推文作品详情</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/common.js"></script>
+    <style>
+        /* 推文作品页专属样式 */
+        .tweet-group {
+            margin: 2rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .tweet-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .tweet-img {
+            width: 100%;
+            height: 180px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9rem;
+            overflow: hidden;
+        }
+        .tweet-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .tweet-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        .tweet-tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background-color: #e8f4fd;
+            color: #3498db;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+        .tweet-title {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        .tweet-link {
+            display: inline-flex;
+            align-items: center;
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+        .tweet-link:hover {
+            text-decoration: underline;
+        }
+        .tweet-desc {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+        .gallery-section {
+            margin: 3rem 0 2rem;
+        }
+        .gallery-section h3 {
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .gallery-item {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .gallery-img {
+            height: 180px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        .gallery-item a {
+            display: block;
+            padding: 0.8rem;
+            text-align: center;
+            color: #3498db;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .tweet-group { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<!-- 导航栏 -->
+<header>
+    <div class="container">
+        <nav class="navbar">
+            <a href="index.html" class="logo">我的作品集</a>
+            <ul class="nav-links">
+                <li><button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button></li>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="works.html">作品列表</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- 主内容区 -->
+<main class="container">
+    <h1 class="section-title">推文作品详情</h1>
+
+    <!-- 头部介绍 -->
+    <div class="work-detail" style="margin: 2rem 0;">
+        <div class="work-detail-content">
+            <h2>推文与排版设计</h2>
+            <p>聚焦校园生活、节日情感、文化活动等主题，原创推文注重情感共鸣与内容深度，排版设计兼顾美观度与信息传递效率。</p>
+            <a href="works.html" class="cta-btn">返回作品列表</a>
+        </div>
+    </div>
+
+    <!-- 原创推文组1：节日情感类 -->
+    <h3 style="color: #2c3e50; margin: 2rem 0 1rem 0; font-size: 1.2rem;">✦ 原创推文 · 节日情感类</h3>
+    <div class="tweet-group">
+        <!-- 原创1：母亲节 -->
+        <div class="tweet-item">
+            <div class="tweet-img">
+                <img src="/MyPortfolio/images/tweet/motherday.jpg" alt="母亲节祝福">
+            </div>
+            <div class="tweet-content">
+                <span class="tweet-tag">原创</span>
+                <h3 class="tweet-title">我想对妈妈说：我对你的祝福不是母亲节限定</h3>
+                <a href="https://mp.weixin.qq.com/s/J5RZgovGF3Oobb9CwkTroQ" class="tweet-link" target="_blank">
+                    <i class="fas fa-link"></i> 点击查看原文
+                </a>
+                <p class="tweet-desc">以"母亲节祝福语大闯关"互动形式，引导读者关注与母亲的日常交流，传递"爱是双向奔赴"的核心，打破代际沟通鸿沟。</p>
+            </div>
+        </div>
+        <!-- 原创2：520表白日 -->
+        <div class="tweet-item">
+            <div class="tweet-img">
+                <img src="/MyPortfolio/images/tweet/520.jpg" alt="520送花仪式感">
+            </div>
+            <div class="tweet-content">
+                <span class="tweet-tag">原创</span>
+                <h3 class="tweet-title">我的花忘记晒太阳了，你可以笑一下吗</h3>
+                <a href="https://mp.weixin.qq.com/s/DurMYaKMPjVUTpjSgkNuug" class="tweet-link" target="_blank">
+                    <i class="fas fa-link"></i> 点击查看原文
+                </a>
+                <p class="tweet-desc">探讨送花的情绪价值，分享给家人、恋人、朋友甚至陌生人送花的意义，传递"浪漫不止爱情，更是热爱生活的态度"。</p>
+            </div>
+        </div>
+        <!-- 原创3：六一儿童节 -->
+        <div class="tweet-item">
+            <div class="tweet-img">
+                <img src="/MyPortfolio/images/tweet/childrenday.jpg" alt="六一童心未泯">
+            </div>
+            <div class="tweet-content">
+                <span class="tweet-tag">原创</span>
+                <h3 class="tweet-title">六一时光机 | 不管几岁，快乐万岁</h3>
+                <a href="https://mp.weixin.qq.com/s/xNyR-7UchIAoOXrzITmKGQ" class="tweet-link" target="_blank">
+                    <i class="fas fa-link"></i> 点击查看原文
+                </a>
+                <p class="tweet-desc">通过玩具、零食、动画、儿歌等童年回忆，唤醒成年人的童心，传递"成长的是年龄，不变的是热爱生活的纯粹"。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 原创推文组2：校园生活类 -->
+    <h3 style="color: #2c3e50; margin: 2rem 0 1rem 0; font-size: 1.2rem;">✦ 原创推文 · 校园生活类</h3>
+    <div class="tweet-group">
+        <!-- 原创4：寒假居家现状 -->
+        <div class="tweet-item">
+            <div class="tweet-img">
+                <img src="/MyPortfolio/images/tweet/winterholiday.jpg" alt="寒假居家现状">
+            </div>
+            <div class="tweet-content">
+                <span class="tweet-tag">原创</span>
+                <h3 class="tweet-title">寒假进行时￤让我们一起来调查大学生的居家现状</h3>
+                <a href="https://mp.weixin.qq.com/s/exPAzsTStyXcuilGVrCd4w" class="tweet-link" target="_blank">
+                    <i class="fas fa-link"></i> 点击查看原文
+                </a>
+                <p class="tweet-desc">盘点"孩子王""被养的猪""掌中宝""隐形人""免费劳动力"五种居家角色，调侃中流露家人间的温暖与牵挂。</p>
+            </div>
+        </div>
+        <!-- 原创5：校园春日赏花 -->
+        <div class="tweet-item">
+            <div class="tweet-img">
+                <img src="/MyPortfolio/images/tweet/springflower.jpg" alt="校园春日赏花">
+            </div>
+            <div class="tweet-content">
+                <span class="tweet-tag">原创</span>
+                <h3 class="tweet-title">春日游园 | 把春天框进相机，以作来年之约的信物</h3>
+                <a href="https://mp.weixin.qq.com/s/LtUnsMPvNOPq1lpmI227wg" class="tweet-link" target="_blank">
+                    <i class="fas fa-link"></i> 点击查看原文
+                </a>
+                <p class="tweet-desc">介绍校园内垂丝海棠、杏花、美人梅、玉兰花等花卉的花语与观赏地点，邀请读者发现身边的春日浪漫。</p>
+            </div>
+        </div>
+        <!-- 原创6：十佳报名 -->
+        <div class="tweet-item">
+            <div class="tweet-img">
+                <img src="/MyPortfolio/images/tweet/shijia.jpg" alt="情感随笔">
+            </div>
+            <div class="tweet-content">
+                <span class="tweet-tag">原创</span>
+                <h3 class="tweet-title">十佳报名 | 尽管放声歌唱，全世界都在为你安可</h3>
+                <a href="https://mp.weixin.qq.com/s/YWKgw4fpOR2vT4JFFGLYJg" class="tweet-link" target="_blank">
+                    <i class="fas fa-link"></i> 点击查看原文
+                </a>
+                <p class="tweet-desc">分享往届歌手的音乐故事与感悟，公布完整赛程安排与线上线下报名方式，邀请热爱音乐的学子登上舞台。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 原创推文组3：校园活动类 -->
+    <h3 style="color: #2c3e50; margin: 2rem 0 1rem 0; font-size: 1.2rem;">✦ 原创推文 · 校园活动类</h3>
+    <div class="tweet-group">
+        <!-- 原创7：十佳歌手决赛风采 -->
+        <div class="tweet-item">
+            <div class="tweet-img">
+                <img src="/MyPortfolio/images/tweet/singershow.jpg" alt="十佳歌手决赛">
+            </div>
+            <div class="tweet-content">
+                <span class="tweet-tag">原创</span>
+                <h3 class="tweet-title">音梦荟萃，十佳盛典 | 十佳决赛选手风采一览</h3>
+                <a href="https://mp.weixin.qq.com/s/svzspnO9Rz-pfM3akgTNOA" class="tweet-link" target="_blank">
+                    <i class="fas fa-link"></i> 点击查看原文
+                </a>
+                <p class="tweet-desc">全方位展示14位决赛选手与6位往届十佳歌手的参赛曲目与风采，预告决赛赛制，点燃校园音乐热情。</p>
+            </div>
+        </div>
+        <!-- 原创8：十佳邀请函 -->
+        <div class="tweet-item">
+            <div class="tweet-img">
+                <img src="/MyPortfolio/images/tweet/singerapply.jpg" alt="十佳歌手报名">
+            </div>
+            <div class="tweet-content">
+                <span class="tweet-tag">原创</span>
+                <h3 class="tweet-title">十佳决赛倒计时2天！请查收你的邀请函~</h3>
+                <a href="https://mp.weixin.qq.com/s/gtVLGuUM6uY4JpQE_XAqrA" class="tweet-link" target="_blank">
+                    <i class="fas fa-link"></i> 点击查看原文
+                </a>
+                <p class="tweet-desc">以信封展开形式，介绍十佳歌手活动时间地点和节目单</p>
+            </div>
+        </div>
+        <!-- 原创9：四六级攻略 -->
+        <div class="tweet-item">
+            <div class="tweet-img">
+                <img src="/MyPortfolio/images/tweet/cet.jpg" alt="四六级阅读攻略">
+            </div>
+            <div class="tweet-content">
+                <span class="tweet-tag">原创</span>
+                <h3 class="tweet-title">读懂阅读攻略，给四六级通关加buff</h3>
+                <a href="https://mp.weixin.qq.com/s/-oppEiPdnARkZwuDk4eK1g" class="tweet-link" target="_blank">
+                    <i class="fas fa-link"></i> 点击查看原文
+                </a>
+                <p class="tweet-desc">拆解选词填空、长篇阅读、仔细阅读三类题型的答题技巧，分享同义替换词汇与解题公式，助力考生高效备考。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 排版设计展示 -->
+    <section class="gallery-section">
+        <h3>✦ 排版设计 · 活动通知类</h3>
+        <div class="gallery-grid">
+            <!-- 排版1：3v3篮球赛报名 -->
+            <div class="gallery-item">
+                <div class="gallery-img">
+                    <img src="/MyPortfolio/images/tweet/basketball.jpg" alt="3v3篮球赛报名">
+                </div>
+                <a href="https://mp.weixin.qq.com/s/wYWiVzDoCxWcQp29qAJe0A" target="_blank">
+                    <i class="fas fa-link"></i> 迎“篮”而上 | 2024年南京工程学院3v3篮球赛开始报名啦
+                </a>
+            </div>
+            <!-- 排版2：暑期夏令营开营 -->
+            <div class="gallery-item">
+                <div class="gallery-img">
+                    <img src="/MyPortfolio/images/tweet/summercamp.jpg" alt="暑期夏令营开营">
+                </div>
+                <a href="https://mp.weixin.qq.com/s/0TssHdNoZ7x1oLcUsG83xw" target="_blank">
+                    <i class="fas fa-link"></i> 让爱跋山涉水，让教育没有距离 | 2024“五育润心，沐光同行”暑期夏令营今天开营啦！
+                </a>
+            </div>
+            <!-- 排版3：暑期夏令营结营 -->
+            <div class="gallery-item">
+                <div class="gallery-img">
+                    <img src="/MyPortfolio/images/tweet/campend.jpg" alt="暑期夏令营结营">
+                </div>
+                <a href="https://mp.weixin.qq.com/s/kcT8T5ne0klbTlqq0A-Hlw" target="_blank">
+                    <i class="fas fa-link"></i> 青春逐梦新征程 | 2024“五育润心，沐光同行”暑期夏令营圆满完成
+                </a>
+            </div>
+            <!-- 排版4：新年游园会 -->
+            <div class="gallery-item">
+                <div class="gallery-img">
+                    <img src="/MyPortfolio/images/tweet/newyear.jpg" alt="新年游园会">
+                </div>
+                <a href="https://mp.weixin.qq.com/s/P0xGDAGc8hCWNuK3M3WhOg" target="_blank">
+                    <i class="fas fa-link"></i> 新年游园会卷土重来，准备好迎接2024了吗
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- 页脚和脚本 -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-github"></i></a></li>
+                <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+            </ul>
+            <p>&copy; 2026 我的个人作品集 | 版权所有</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function goBack() { window.history.back(); }
+</script>
+</body>
+</html>

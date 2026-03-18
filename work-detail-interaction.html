@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人作品集 - 交互设计</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="js/common.js"></script>
+  <style>
+    /* 交互设计详情页专属样式 */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    /* 视频容器样式 */
+    .video-container {
+      margin: 2rem 0;
+      width: 100%;
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .video-container:not(:last-of-type) {
+      margin-bottom: 2rem;
+    }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      max-height: 500px;
+    }
+    .video-title {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .video-desc {
+      margin-top: 1rem;
+      color: #666;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    /* 三张图片并排样式 */
+    .images-row {
+      margin: 2rem 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .image-item {
+      width: 100%;
+    }
+    .image-item img {
+      width: 100%;
+      height: 850px; /* 适配竖版图片高度 */
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      object-fit: cover;
+      cursor: pointer;
+      background-color: #f5f5f5;
+    }
+    .image-desc {
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-top: 1rem;
+    }
+    .image-desc h4 {
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .image-desc p {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    /* 响应式适配（小屏自动变一列） */
+    @media (max-width: 768px) {
+      .images-row {
+        grid-template-columns: 1fr;
+      }
+      .image-item img {
+        height: auto;
+        max-height: 500px;
+      }
+      .video-container video {
+        max-height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- 导航栏 -->
+<header>
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="logo">我的作品集</a>
+      <ul class="nav-links">
+        <li><button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i></button></li>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="works.html">作品列表</a></li>
+        <li><a href="contact.html">联系我</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- 主内容区 -->
+<main class="container">
+  <h1 class="section-title">作品详情</h1>
+
+  <!-- 1. 文字介绍（置顶） -->
+  <div class="work-detail" style="margin: 2rem 0;">
+    <div class="work-detail-content">
+      <h2>交互设计</h2>
+      <span class="category" style="display: inline-block; margin: 1rem 0; color: #666;">页面交互 / 动效设计 / 用户体验</span>
+      <p style="line-height: 1.8; color: #333; margin-bottom: 1rem;">
+        本系列为纯页面交互设计作品，涵盖响应式网页布局、运动类App、助学类App的交互原型与动效实现，通过清晰的流程设计与直观的视觉反馈，提升用户操作效率与体验感。
+      </p>
+      <p style="line-height: 1.8; color: #333;">
+        练习过程中掌握了页面切换动效、表单交互反馈、组件状态变化等核心交互技能，所有作品均完成从原型设计到Demo演示的完整流程，为后续产品交互设计奠定基础。
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. 第一个视频：运动app演示 -->
+  <div class="video-container">
+    <h3 class="video-title">运动App交互演示</h3>
+    <video controls>
+      <source src="/MyPortfolio/videos/运动app演示.mp4" type="video/mp4">
+      您的浏览器不支持HTML5视频播放，请更换现代浏览器重试（本地文件可直接打开查看）
+    </video>
+    <p class="video-desc">演示内容：运动类App核心交互流程，包含计划创建、数据记录与状态反馈</p>
+  </div>
+
+  <!-- 3. 第二个视频：助学app演示 -->
+  <div class="video-container">
+    <h3 class="video-title">助学App交互演示</h3>
+    <video controls>
+      <source src="/MyPortfolio/videos/助学app演示.mp4" type="video/mp4">
+      您的浏览器不支持HTML5视频播放，请更换现代浏览器重试
+    </video>
+    <p class="video-desc">演示内容：助学类App功能交互，涵盖学习任务、打卡提醒与进度可视化</p>
+  </div>
+
+  <!-- 4. 第三个视频：响应式布局演示（移到最后） -->
+  <div class="video-container">
+    <h3 class="video-title">响应式布局演示</h3>
+    <video controls>
+      <source src="/MyPortfolio/videos/响应式布局演示.mp4" type="video/mp4">
+      您的浏览器不支持HTML5视频播放，请更换现代浏览器重试
+    </video>
+    <p class="video-desc">演示内容：网页响应式布局适配，展示不同设备下的页面自适应效果</p>
+  </div>
+
+  <!-- 5. 三张竖版图片并排 -->
+  <div class="images-row">
+    <!-- 第一张图：天气 -->
+    <div class="image-item">
+      <img src="/MyPortfolio/images/jiaohusheji/天气.png" alt="天气App界面" onclick="openPreview(this.src)">
+      <div class="image-desc">
+        <h4>天气App界面</h4>
+        <p>展示天气查询、温度趋势与生活指数的交互布局设计</p>
+      </div>
+    </div>
+    <!-- 第二张图：闹钟 -->
+    <div class="image-item">
+      <img src="/MyPortfolio/images/jiaohusheji/闹钟.png" alt="闹钟App界面" onclick="openPreview(this.src)">
+      <div class="image-desc">
+        <h4>闹钟App界面</h4>
+        <p>实现闹钟设置、重复提醒与贪睡模式的交互设计</p>
+      </div>
+    </div>
+    <!-- 第三张图：备忘录 -->
+    <div class="image-item">
+      <img src="/MyPortfolio/images/jiaohusheji/备忘录.png" alt="备忘录App界面" onclick="openPreview(this.src)">
+      <div class="image-desc">
+        <h4>备忘录App界面</h4>
+        <p>支持笔记编辑、分类管理与快速搜索的交互设计</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- 图片预览遮罩层 -->
+<div class="img-preview-overlay" id="previewOverlay" onclick="closePreview()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center;">
+  <span class="close-preview" onclick="closePreview()" style="position: absolute; top: 20px; right: 30px; color: #fff; font-size: 30px; cursor: pointer;">&times;</span>
+  <div class="img-preview-content" style="max-width: 90%; max-height: 90%;">
+    <img id="previewImg" src="" alt="图片预览" style="width: 100%; height: auto;">
+  </div>
+</div>
+
+<!-- 页脚 -->
+<footer>
+  <div class="container">
+    <div class="footer-content" style="text-align: center; padding: 2rem 0; border-top: 1px solid #eee; margin-top: 2rem;">
+      <ul class="social-links" style="list-style: none; display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+        <li><a href="#" style="color: #666; font-size: 1.2rem;"><i class="fab fa-github"></i></a></li>
+        <li><a href="#" style="color: #666; font-size: 1.2rem;"><i class="fab fa-behance"></i></a></li>
+        <li><a href="#" style="color: #666; font-size: 1.2rem;"><i class="fab fa-dribbble"></i></a></li>
+      </ul>
+      <p style="color: #888; font-size: 0.9rem;">&copy; 2026 我的个人作品集 | 版权所有</p>
+    </div>
+  </div>
+</footer>
+
+<!-- 交互脚本 -->
+<script>
+  // 返回上一页
+  function goBack() {
+    window.history.back();
+    if (window.history.length === 1) window.location.href = 'index.html';
+  }
+  // 图片预览
+  function openPreview(imgSrc) {
+    const overlay = document.getElementById('previewOverlay');
+    const previewImg = document.getElementById('previewImg');
+    previewImg.src = imgSrc;
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  // 关闭预览
+  function closePreview() {
+    const overlay = document.getElementById('previewOverlay');
+    overlay.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  // ESC键关闭预览
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closePreview();
+  });
+</script>
+</body>
+</html>
